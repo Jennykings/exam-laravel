@@ -1,0 +1,15 @@
+meta {
+  name: Listar Autores
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://exam.test/authors
+  body: none
+  auth: inherit
+}
+
+headers {
+  content-type: application/json
+}

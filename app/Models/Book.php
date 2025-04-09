@@ -14,4 +14,10 @@ class Book extends Model
     public function author() {
         return $this -> belongsTo(Author::class);
     }
+
+    public function getBooks()
+{
+    $books = Book::all();
+   return response()->json($books);
+}
 }

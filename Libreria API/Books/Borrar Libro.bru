@@ -1,0 +1,15 @@
+meta {
+  name: Borrar Libro
+  type: http
+  seq: 3
+}
+
+delete {
+  url: http://exam.test/books/6
+  body: none
+  auth: inherit
+}
+
+headers {
+  content-type: application/json
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Crear Autor
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://exam.test/authors
+  body: json
+  auth: inherit
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "name": "J.K. Rowling",
+    "email": "jk.rowling@example.com"
+  }
+}
