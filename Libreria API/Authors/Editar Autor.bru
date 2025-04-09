@@ -5,11 +5,18 @@ meta {
 }
 
 put {
-  url: http://exam.test/authors
-  body: none
+  url: http://exam.test/authors/13
+  body: json
   auth: inherit
 }
 
 headers {
   content-type: application/json
+}
+
+body:json {
+  {
+      "name": "Nuevo Nombre del Autor",
+      "email": "nuevoemail@example.com"
+  }
 }
