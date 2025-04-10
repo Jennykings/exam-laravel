@@ -1,0 +1,26 @@
+meta {
+  name: Update Post
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://exam.test/api/posts/54
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: 6|RMZ8DyKC3wIcWSolexWYl2Gz2c9sgqMM9D3bUZMGd256879a
+}
+
+body:json {
+  {
+    "title": "Post actualizado 54",
+    "content": "Contenido actualizado 54"
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Login User
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://exam.test/api/login
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  content-type: application/json
+}
+
+body:json {
+  {
+    "email": "Regina@gmail.com",
+    "password": "12345678"
+  }
+}

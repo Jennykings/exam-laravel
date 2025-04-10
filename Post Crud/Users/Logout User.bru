@@ -1,0 +1,19 @@
+meta {
+  name: Logout User
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://exam.test/api/logout
+  body: none
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: 4|O7jCT2b4MBgbEJflCCLL5SUPAZjNAe44eKnRRQd3cd01d8f4
+}

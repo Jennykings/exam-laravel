@@ -1,0 +1,26 @@
+meta {
+  name: Create Post
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://exam.test/api/posts
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: 6|RMZ8DyKC3wIcWSolexWYl2Gz2c9sgqMM9D3bUZMGd256879a
+}
+
+body:json {
+  {
+    "title": "Nuevo Post",
+    "content": "Contenido de nuevo post"
+  }
+}
