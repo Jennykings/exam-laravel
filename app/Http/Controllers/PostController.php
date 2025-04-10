@@ -67,9 +67,12 @@ class PostController extends Controller
      * Display the specified resource.
      */
     public function show(Post $post)
-    {
-        //
-    }
+{
+    // Cargar también el usuario que creó el post (relación)
+    $post->load('user');
+
+    return response()->json($post);
+}
 
     /**
      * Show the form for editing the specified resource.

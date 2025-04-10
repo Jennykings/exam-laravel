@@ -1,0 +1,23 @@
+meta {
+  name: Post by user
+  type: http
+  seq: 7
+}
+
+get {
+  url: http://exam.test/api/posts?user_id=1
+  body: none
+  auth: bearer
+}
+
+params:query {
+  user_id: 1
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: 6|RMZ8DyKC3wIcWSolexWYl2Gz2c9sgqMM9D3bUZMGd256879a
+}

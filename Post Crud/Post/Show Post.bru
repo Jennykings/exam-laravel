@@ -1,12 +1,12 @@
 meta {
-  name: Update Post
+  name: Show Post
   type: http
-  seq: 3
+  seq: 5
 }
 
-put {
+get {
   url: http://exam.test/api/posts/53
-  body: json
+  body: none
   auth: bearer
 }
 
@@ -16,11 +16,4 @@ headers {
 
 auth:bearer {
   token: 6|RMZ8DyKC3wIcWSolexWYl2Gz2c9sgqMM9D3bUZMGd256879a
-}
-
-body:json {
-  {
-    "title": "Post actualizado 53",
-    "content": "Contenido actualizado 53"
-  }
 }

@@ -1,0 +1,23 @@
+meta {
+  name: Post for my posts
+  type: http
+  seq: 8
+}
+
+get {
+  url: http://exam.test/api/posts?my_posts=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  my_posts: true
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: 6|RMZ8DyKC3wIcWSolexWYl2Gz2c9sgqMM9D3bUZMGd256879a
+}

@@ -1,0 +1,23 @@
+meta {
+  name: List posts with pagination
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://exam.test/api/posts?page=2
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 2
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: 6|RMZ8DyKC3wIcWSolexWYl2Gz2c9sgqMM9D3bUZMGd256879a
+}

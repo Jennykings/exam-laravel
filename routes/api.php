@@ -21,15 +21,11 @@ Route::post('login', [AuthController::class, 'login']);
 //Route::middleware('auth:sanctum')->put('/posts/{post}', [PostController::class, 'update']);
 
 // Rutas protegidas con Sanctum
-Route::middleware('auth:sanctum')->group(function () {
-    
+Route::middleware('auth:sanctum')->group(function () {   
     Route::get('posts', [PostController::class, 'index']);       // Listar con filtros, orden, paginación
-    
     Route::post('posts', [PostController::class, 'store']);       // Crear
-    
-    //Route::get('/posts/{id}', [PostController::class, 'show']);    // Ver detalle
-    Route::put('/posts/{post}', [PostController::class, 'update']); // Actualizar
-    //Route::delete('/posts/{id}', [PostController::class, 'destroy']); // Eliminar
-    
+    Route::get('posts/{post}', [PostController::class, 'show']);    // Ver detalle
+    Route::put('posts/{post}', [PostController::class, 'update']); // Actualizar
+    Route::delete('posts/{post}', [PostController::class, 'destroy']); // Eliminar
     Route::get('logout', [AuthController::class, 'logout']);
 });
