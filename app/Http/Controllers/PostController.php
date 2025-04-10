@@ -66,12 +66,23 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id)
 {
-    // Cargar también el usuario que creó el post (relación)
-    $post->load('user');
+    try {
+        // Buscar el post por ID y cargar relación con el usuario
+        $post = Post::with('user')->findOrFail($id);
 
-    return response()->json($post);
+    } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        return response()->json([
+            'message' => 'Post no encontrado.'
+        ], 404);
+    } catch (\Exception $e) {
+        // Para cualquier otro tipo de error
+        return response()->json([
+            'message' => 'Error al obtener el post.',
+            'error' => $e->getMessage()
+        ], 500);
+    }
 }
 
     /**

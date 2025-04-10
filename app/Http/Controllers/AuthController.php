@@ -69,4 +69,17 @@ class AuthController extends Controller
         ]);
     }
 
+    public function show(Request $request)
+{
+    $user = $request->user();
+
+    if (!$user) {
+        return response()->json([
+            'message' => 'Usuario no autenticado o no registrado.'
+        ], 404);
+    }
+
+    return response()->json($request->user());
+}
+
 }

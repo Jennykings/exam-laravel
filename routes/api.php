@@ -27,5 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('posts/{post}', [PostController::class, 'show']);    // Ver detalle
     Route::put('posts/{post}', [PostController::class, 'update']); // Actualizar
     Route::delete('posts/{post}', [PostController::class, 'destroy']); // Eliminar
+    Route::get('show', [AuthController::class, 'show']);
     Route::get('logout', [AuthController::class, 'logout']);
 });
