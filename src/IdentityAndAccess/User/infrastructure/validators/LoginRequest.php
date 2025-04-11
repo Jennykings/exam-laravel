@@ -3,26 +3,15 @@
 namespace Src\IdentityAndAccess\User\Infrastructure\Validators;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
 
-class LoginRequest extends FormRequest
+class LoginValidator
 {
-	/**
-	 * Determine if the user is authorized to make this request.
-	 */
-	public function authorize(): bool
-	{
-		return true;
-	}
-
-	/**
-	 * Get the validation rules that apply to the request.
-	 *
-	 * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-	 */
-	public function rules(): array
-	{
-		return [
-			//
-		];
-	}
+    public static function validate(array $data): array
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string'],
+        ])->validate();
+    }
 }
