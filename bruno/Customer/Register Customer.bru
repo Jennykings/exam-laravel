@@ -1,0 +1,27 @@
+meta {
+  name: Register Customer
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://exam.test/api/Customer/store
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+  content-type: application/json
+}
+
+auth:bearer {
+  token: 8|ZIAPzcN8WuAbImiUz613k0269UxBGu9J0oSqOcaw64a76108
+}
+
+body:json {
+  {
+    "name": "Lucas",
+    "email": "Lucas@example.com"
+  }
+}

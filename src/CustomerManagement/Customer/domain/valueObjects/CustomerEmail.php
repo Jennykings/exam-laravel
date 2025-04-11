@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 namespace Src\CustomerManagement\Customer\Domain\ValueObjects;
 
+use InvalidArgumentException;
+
 final class CustomerEmail
 {
-	private $value;
+    private string $value;
 
-	public function __construct(string $Email)
-	{
-		$this -> value = $Email;
-	}
+    public function __construct(string $value)
+    {
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException('El email no es válido.');
+        }
 
-	public function value(): string
-	{
-		return $this -> value;
-	}
+        $this->value = $value;
+    }
+
+    public function value(): string
+    {
+        return $this->value;
+    }
 }

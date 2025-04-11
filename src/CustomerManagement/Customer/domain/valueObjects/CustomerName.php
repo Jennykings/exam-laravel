@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 namespace Src\CustomerManagement\Customer\Domain\ValueObjects;
 
+use InvalidArgumentException;
+
 final class CustomerName
 {
-	private $value;
+    private string $value;
 
-	public function __construct(string $Name)
-	{
-		$this -> value = $Name;
-	}
+    public function __construct(string $value)
+    {
+        if (strlen($value) < 3) {
+            throw new InvalidArgumentException('El nombre debe tener al menos 3 caracteres.');
+        }
 
-	public function value(): string
-	{
-		return $this -> value;
-	}
+        $this->value = $value;
+    }
+
+    public function value(): string
+    {
+        return $this->value;
+    }
 }

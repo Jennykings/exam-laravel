@@ -1,17 +1,18 @@
 meta {
-  name: Show User
+  name: Listar Customer
   type: http
-  seq: 4
+  seq: 1
 }
 
 get {
-  url: http://exam.test/api/User/show
-  body: none
+  url: http://exam.test/api/Customer/index
+  body: json
   auth: bearer
 }
 
 headers {
   Accept: application/json
+  content-type: application/json
 }
 
 auth:bearer {

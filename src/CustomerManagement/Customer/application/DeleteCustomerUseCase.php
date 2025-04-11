@@ -8,15 +8,15 @@ use Src\CustomerManagement\Customer\Domain\Contracts\CustomerRepositoryContract;
 
 final class DeleteCustomerUseCase
 {
-	private $repository;
+    private CustomerRepositoryContract $repository;
 
-	public function __construct(CustomerRepositoryContract $repository)
-	{
-		$this -> repository = $repository;
-	}
+    public function __construct(CustomerRepositoryContract $repository)
+    {
+        $this->repository = $repository;
+    }
 
-	public function __invoke()
-	{
-		//
-	}
+    public function __invoke(int $id): bool
+    {
+        return $this->repository->delete($id);
+    }
 }

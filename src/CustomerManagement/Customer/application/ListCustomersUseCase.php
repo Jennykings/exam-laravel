@@ -8,15 +8,15 @@ use Src\CustomerManagement\Customer\Domain\Contracts\CustomerRepositoryContract;
 
 final class ListCustomersUseCase
 {
-	private $repository;
+    private CustomerRepositoryContract $repository;
 
-	public function __construct(CustomerRepositoryContract $repository)
-	{
-		$this -> repository = $repository;
-	}
+    public function __construct(CustomerRepositoryContract $repository)
+    {
+        $this->repository = $repository;
+    }
 
-	public function __invoke()
-	{
-		//
-	}
+    public function __invoke(?string $filter = null, ?string $sort = 'desc'): array
+    {
+        return $this->repository->list($filter, $sort);
+    }
 }
