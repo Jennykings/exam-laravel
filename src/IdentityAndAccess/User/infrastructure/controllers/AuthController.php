@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\IdentityAndAccess\User\infrastructure\controllers;
+namespace Src\IdentityAndAccess\User\Infrastructure\Controllers;
 
 use App\Http\Controllers\Controller;
 
@@ -11,7 +11,7 @@ use Src\IdentityAndAccess\User\Application\LoginUseCase;
 use Src\IdentityAndAccess\User\Infrastructure\Validators\RegisterValidator;
 use Src\IdentityAndAccess\User\Infrastructure\Validators\LoginValidator;
 
-class AuthController
+class AuthController extends Controller
 {
     public function register(Request $request, RegisterUseCase $registerUseCase)
     {
@@ -20,6 +20,7 @@ class AuthController
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
+            'data' => $user,
             'access_token' => $token,
             'token_type' => 'Bearer',
         ]);
@@ -32,8 +33,10 @@ class AuthController
     $token = $user->createToken('auth_token')->plainTextToken;
 
     return response()->json([
+        'message' => 'Hi ' . $user->name, 
         'access_token' => $token,
         'token_type' => 'Bearer',
+        'user' => $user, 
     ]);
 }
 
@@ -43,4 +46,17 @@ class AuthController
 
         return response()->json(['message' => 'Sesión cerrada']);
     }
+
+    public function show(Request $request)
+{
+    $user = $request->user();
+
+    if (!$user) {
+        return response()->json([
+            'message' => 'Usuario no autenticado o no registrado.'
+        ], 404);
+    }
+
+    return response()->json($user);
+}
 }

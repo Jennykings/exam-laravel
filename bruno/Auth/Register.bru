@@ -5,20 +5,20 @@ meta {
 }
 
 post {
-  url: http://exam.test/api/register
+  url: http://exam.test/api/User/register
   body: json
   auth: inherit
 }
 
 headers {
   Accept: application/json
-  Content-Type: application/json
+  content-type: application/json
 }
 
 body:json {
   {
-        "name": "Juan Pérez",
-        "email": "juan@example.com",
-        "password": "password123"
+    "name": "Luis",
+    "email": "Luis@gmail.com",
+    "password": "password"
   }
 }

@@ -4,8 +4,20 @@ meta {
   seq: 2
 }
 
-get {
-  url: 
-  body: none
+post {
+  url: http://exam.test/api/User/login
+  body: json
   auth: inherit
+}
+
+headers {
+  Accept: application/json
+  content-type: application/json
+}
+
+body:json {
+  {
+    "email": "Luis@gmail.com",
+    "password": "password"
+  }
 }
